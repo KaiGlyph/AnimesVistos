@@ -11,53 +11,54 @@ header {
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    position: relative; /* Necesario para posicionar el buscador en relación con el header */
+    position: relative;
 }
 
 .search-container {
     position: absolute;
     right: 20px;
-    top: 50%; /* Coloca el contenedor verticalmente en el medio del header */
-    transform: translateY(-50%); /* Ajusta la posición para que esté centrado verticalmente */
-    z-index: 1000; /* Asegura que el menú desplegable esté sobre otros elementos */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .dropdown-button {
-    font-size: 2em; /* Ajusta el tamaño del ícono según tu diseño */
+    font-size: 2em;
     color: #fff;
     cursor: pointer;
     background: none;
     border: none;
     padding: 10px;
-    transition: transform 0.3s ease, color 0.3s ease; /* Añade transición suave para transformaciones y cambios de color */
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .dropdown-button:hover {
-    transform: scale(1.1); /* Aumenta el tamaño del ícono en un 10% */
-    color: #ab59c4; /* Cambia el color del ícono al pasar el ratón */
+    transform: scale(1.1);
+    color: #ab59c4;
 }
 
 .dropdown-content {
-    display: block; /* Mantenemos el contenedor siempre en el flujo del documento para permitir animaciones de transición */
+    display: block;
     position: absolute;
-    top: 60px; /* Ajusta la posición para que el menú se despliegue por debajo del ícono */
+    top: 60px;
     right: 0;
     background-color: #444;
     border: 1px solid #333;
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    width: 250px; /* Ajusta el ancho del menú */
-    max-height: 0; /* Inicialmente el contenido está oculto */
-    opacity: 0; /* Inicialmente el contenido está oculto */
-    overflow: hidden; /* Asegura que el contenido no desborde el área visible */
-    transition: max-height 0.7s ease-out, opacity 0.7s ease-out; /* Aumenta la duración de la transición */
+    width: 250px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-out, opacity 0.7s ease-out;
 }
 
-
 .dropdown-content.show {
-    max-height: 500px; /* Ajusta la altura máxima según el contenido */
-    opacity: 1; /* Haz el contenido completamente opaco cuando se muestra */
+    max-height: 500px;
+    opacity: 1;
 }
 
 .dropdown-content h2 {
@@ -91,45 +92,46 @@ header {
     color: #fff;
 }
 
-
+/* ----------------- GRID Y TARJETAS ----------------- */
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 20px;
 }
 
 .anime-card {
-    width: 500px;
-    margin: 20px;
-    padding: 15px; /* Espacio entre el borde del contenedor y el contenido */
-    border: 1px solid #333;
+    background-color: #2a2a2a;
+    border: 1px solid rgba(171, 89, 196, 0.4);
     border-radius: 10px;
     overflow: hidden;
-    transition: all 0.3s ease;
-    background-color: #444;
     display: flex;
-    flex-direction: column; /* El contenido se apila verticalmente */
+    flex-direction: column;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .anime-card:hover {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(171, 89, 196, 0.6);
+    transform: translateY(-5px);
 }
 
 .anime-card img {
-    flex: 1; /* La imagen ocupa todo el espacio disponible */
     width: 100%;
-    height: auto; /* Para mantener la relación de aspecto */
-    object-fit: cover; /* Ajustar la imagen dentro del contenedor sin deformarla */
-    border-radius: 5px; /* Radio de borde de 5px */
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 .anime-card-content {
-    padding: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .anime-card-content h2 {
-    font-size: 2em;
+    font-size: 1.4em;
     margin-bottom: 5px;
     color: #fff;
 }
@@ -142,38 +144,53 @@ header {
 }
 
 .anime-card-content .estado {
-    font-size: 1.5em;
-    margin-top: 0;
+    font-size: 1em;
+    margin-top: auto;
     color: #ccc;
-    padding-top: 1rem;
-    border-top: #222 solid;
+    padding-top: 0.5rem;
+    border-top: 1px solid #222;
 }
 
 .anime-card-content p {
-    font-size: 1.25em;
-    margin-top: 0;
+    font-size: 1em;
+    margin: 5px 0;
     color: #ccc;
 }
 
 .anime-card .anime-rating {
-    font-size: 1.6em;
+    font-size: 1.2em;
     font-weight: bold;
     color: #ab59c4;
-    margin-bottom: 1.4rem;
-    margin-top: 0.6rem;
-}
-.anime-card .animeviolento {
-    font-size: 1.6em;
-    font-weight: bold;
-    color: #f01313;
+    margin: 0.5rem 0;
 }
 
-.search-container {
-    text-align: center;
-    margin-bottom: 20px;
+.anime-card .animeviolento {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f01313;
 }
 
 .result-item {
     padding: 10px;
     border-bottom: 1px solid #ccc;
 }
+
+/* ----------------- RESPONSIVO ----------------- */
+@media (max-width: 1200px) {
+    .container {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* 3 por fila */
+    }
+}
+
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* 2 por fila */
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* 1 por fila */
+    }
+}
+
